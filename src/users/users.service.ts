@@ -28,7 +28,7 @@ export class UsersService {
 
   async findById(id: number) {
     const [rows] = await this.pool().execute<RowDataPacket[]>(
-      'SELECT id, username, role, created_at FROM users WHERE id = ?',
+      'SELECT id, username, role, createdAt FROM users WHERE id = ?',
       [id],
     );
     return rows[0];
@@ -36,7 +36,7 @@ export class UsersService {
 
   async getAll() {
     const [rows] = await this.pool().execute<RowDataPacket[]>(
-      'SELECT id, username, role, created_at FROM users',
+      'SELECT id, username, role, createdAt FROM users',
     );
     return rows;
   }
