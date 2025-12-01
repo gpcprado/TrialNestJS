@@ -36,12 +36,12 @@ export class PositionsController {
     }
     
   @Put(':id')
-    async update(
-  @Param('id') id: number,
-  @Body() data: { position_code?: string; position_name?: string },
+async update(
+  @Param('id') id: number,
+  @Body() data: { position_code?: string; position_name?: string },
 ) {
-  return {
-    message: 'Position updated successfully',
-  };
+    const updatedPosition = await this.positionsService.update(id, data); 
+
+    return updatedPosition;
 }
 } 
